@@ -1,7 +1,7 @@
-"use client"; // Mark this component as a Client Component
+"use client";
 
 import React from 'react';
-import Link from 'next/link'; // Import Link from Next.js
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
 interface Option {
@@ -18,12 +18,12 @@ const Radio: React.FC<RadioProps> = ({
     options = [{ label: "test", value: "test" }, { label: "test2", value: "test2" }],
     color = 'blueviolet'}) => {
 
-    const pathname = usePathname(); // Call usePathname at the top level
+    const pathname = usePathname();
 
     const getGradientStyle = (isSelected: boolean): React.CSSProperties => {
         if (isSelected) {
             return {
-                backgroundImage: `linear-gradient(to right, ${color}, violet)`,
+                backgroundImage: `linear-gradient(to right, ${color}, red)`,
                 color: 'white',
             };
         }
@@ -31,12 +31,12 @@ const Radio: React.FC<RadioProps> = ({
     };
 
     return (
-        <div className="inline-flex space-x-2 border-3 border-purple-400 rounded-xl select-none">
+        <div className="inline-flex space-x-2 border-3 rounded-xl select-none">
             {options.map((option) => (
                 <Link key={option.value} href={option.value} passHref>
                     <label
-                        className="radio flex items-center justify-center rounded-lg p-1 cursor-pointer transition duration-150 ease-in-out"
-                        style={getGradientStyle(pathname === option.value)} // Use the pathname variable here
+                        className="radio flex items-center justify-center rounded-lg p-1 cursor-pointer transition bg-white duration-150 ease-in-out hover:border-2 hover:border-red-500 border-2 border-transparent"
+                        style={getGradientStyle(pathname === option.value)}
                     >
                         <input
                             type="radio"
