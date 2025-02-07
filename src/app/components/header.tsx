@@ -12,7 +12,7 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ client, wallets, radioOptions, chains }) => {
   return (
-    <header className="w-full px-6 py-4 bg-white shadow-md">
+    <header className="w-full px-6 py-4 bg-gray-800 shadow-md fixed top-0">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* Left Side: Radio Buttons */}
         <Radio options={radioOptions} color="#6B46C1" /> {/* Adjust color as needed */}
