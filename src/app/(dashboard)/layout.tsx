@@ -30,7 +30,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div>  
           <Header client={client} wallets={wallets} radioOptions={radioOptions} chains={chains}/>
           <span className="block h-24"></span>
-            <div>{children}</div>
+            <div className="bg-gradient-to-r from-blue-500 to-purple-500">{children}</div>
           
         </div>
         

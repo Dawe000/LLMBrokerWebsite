@@ -43,7 +43,7 @@ const ChatHeader = () => {
   }
   
     return (
-      <header className="w-full px-6 py-4 bg-gray-800 shadow-md rounded-t-lg"> {/* Added rounded top corners */}
+      <header className="w-full px-6 py-4 bg-gray-900 shadow-md rounded-t-lg"> {/* Added rounded top corners */}
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex-1"> {/* Left side */}
             <Dropdown 

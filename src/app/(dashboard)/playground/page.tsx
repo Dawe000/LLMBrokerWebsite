@@ -17,7 +17,6 @@ export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       <main className="p-4 pb-10 flex-grow container max-w-screen-lg mx-auto">
-        <h1 className="text-2xl font-bold">Docs</h1>
         <ChatContainer/>
       </main>
     </div>
