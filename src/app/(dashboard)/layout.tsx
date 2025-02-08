@@ -16,8 +16,8 @@ const chains = [sepolia,ethereum];
 
 const radioOptions = [
   { label: 'Home', value: '/' },
-  { label: 'Try it out', value: '/test2' },
-  { label: 'Docs', value: '/test3' },
+  { label: 'Try it out', value: '/playground' },
+  { label: 'Docs', value: '/test2' },
   // Add more options here if needed
 ];
 
