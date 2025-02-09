@@ -38,7 +38,7 @@ const ChatWindow = ({ initialMessages = [] }: { initialMessages?: Message[] }) =
 
     return (
         <div className="flex justify-center">
-            <div className="w-full max-w-[1200px] h-[800px] bg-gray-800 rounded-lg shadow-lg flex flex-col">
+            <div className="w-full max-w-[1200px] h-[600px] bg-gray-800 rounded-lg shadow-lg flex flex-col">
                 <div className="flex-1 overflow-y-auto p-4 space-y-4">
                     {messages.map((message, index) => (
                         <MessageBox 
