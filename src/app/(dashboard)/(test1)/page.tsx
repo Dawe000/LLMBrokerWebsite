@@ -21,11 +21,7 @@ export default function Home() {
       <main className="p-4 pb-10 flex-grow container max-w-screen-lg mx-auto">
         {/* Your main page content goes here */}
         <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
-        <p>Wallet address: {account?.address}</p>
-      <p>
-        Wallet balance: {balance?.displayValue} {balance?.symbol}
-      </p>
-      <p>This is page 1</p>
+        <p>Using idle hardware to provide decentralized LLM services </p>
       </main>
     </div>
   );
