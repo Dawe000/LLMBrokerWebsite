@@ -17,6 +17,10 @@ interface ChatWindowProps {
     initialMessages?: Message[];
 }
 
+const cleanMessageContent = (content: string): string => {
+    return content.replace(/<think>.*?<\/think>/gs, '').trim();
+};
+
 const ChatWindow: React.FC<ChatWindowProps> = ({ selectedServer, initialMessages = [] }) => {
     const [messages, setMessages] = useState<Message[]>(initialMessages);
     const account = useActiveAccount();
@@ -52,9 +56,11 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ selectedServer, initialMessages
                 account?.address
             );
 
+            console.log(response);
+
             const botMessage: Message = {
                 role: "bot",
-                content: response || "No response from server"
+                content: response.generated_text[0].content || "No response from server"
             };
             
             setMessages(prevMessages => [...prevMessages, botMessage]);
@@ -81,7 +87,7 @@ const ChatWindow: React.FC<ChatWindowProps> = ({ selectedServer, initialMessages
                             position={message.role === "user" ? "right" : "left"}
                             type={"text"}
                             title={message.role === "user" ? "You" : "Bot"}
-                            text={message.content}
+                            text={cleanMessageContent(message.content)}
                             date={new Date()}
                             id={index.toString()}
                             focus={false}

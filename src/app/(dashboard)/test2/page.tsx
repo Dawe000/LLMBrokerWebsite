@@ -24,6 +24,7 @@ export default function Home() {
       {/* Main Content Below the Header */}
       <main className="p-4 pb-10 flex-grow container max-w-screen-lg mx-auto">
         {/* Your main page content goes here */}
+<<<<<<< HEAD
         <h1 className="text-2xl font-bold">Welcome to the Docs</h1>
         <div className="mt-4">
           <h2 className="text-xl font-semibold">Useful Links</h2>
@@ -40,6 +41,9 @@ export default function Home() {
             </li>
           </ul>
         </div>
+=======
+        <h1 className="text-2xl font-bold">Welcome to the Home Page</h1>
+>>>>>>> 1abc340 (post hackathon cleanup commit)
       </main>
     </div>
   );
