@@ -10,7 +10,11 @@ import TransactTokensContainer from "./transacttokenscontainer";
 import UserApi from "llmbrokerapilib";
 import { Aoboshi_One } from 'next/font/google';
 
-const ChatHeader = () => {
+interface ChatHeaderProps {
+    onServerSelect: (server: any) => void;
+}
+
+const ChatHeader: React.FC<ChatHeaderProps> = ({ onServerSelect }) => {
   
   const [selectedValue, setSelectedValue] = useState('');
   const [numTokens, setNumTokens] = useState<string>('0');
@@ -41,17 +45,27 @@ const ChatHeader = () => {
       const servers = await api.GetServerList();
       console.log(servers);
 
-      const selectedServer = await api.GetSortedServers("test");
+      // Use selectedValue instead of hardcoded value
+      const selectedServer = await api.GetSortedServers(selectedValue);
       console.log(selectedServer);
       const depositamount = BigInt("100000000000000000"); // 0.1 FLR in wei
       const publickey = "-----BEGIN PUBLIC KEY-----MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgGg/SPdLQlP0Fu671ucCCewME9T7iFduptUq+PaA9FfiVrnOFN8GTCrXMhznAbcPsqnElmnlIgWLGlc1IjJJ7n0z7l8469TU70+AptSTjp00dzp6tMGe0MIk0T8m3guJYXqe4H/J9XRM7276SNLVQsAdEsXODkC24PS19eK9LinXAgMBAAE=-----END PUBLIC KEY-----"
+      
+      // Add check for valid server selection
+      if (!selectedServer || selectedServer.length === 0) {
+        throw new Error("No servers available for selected model");
+      }
+
       const result = await api.CreateAgreement(
-        selectedServer[0].serverContract,
+        "0xFA86568E616CB96AB22e60d547a795B108623ccC",
         publickey,
         depositamount
       );
 
       console.log(result);
+      
+      // Pass the selected server up
+      onServerSelect(selectedServer[0]);
       
       // Update tokens after agreement is created
       await updateTokens(selectedServer[0].serverContract);
@@ -65,9 +79,9 @@ const ChatHeader = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex-1"> {/* Left side */}
             <Dropdown 
-              options={["deepseek","test"]} 
+              options={["deepseek-r1:14b","test"]} 
               onSelectionChange={handleSelectionChange} 
-              defaultValue="op1"
+              defaultValue="deepseek-r1:14b"
             />
             
           </div>

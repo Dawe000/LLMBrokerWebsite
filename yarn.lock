@@ -4764,9 +4764,9 @@ lit@2.8.0, lit@^2.2.3:
     lit-html "^2.8.0"
 
 llmbrokerapilib@^1.0.18:
-  version "1.0.23"
-  resolved "https://registry.yarnpkg.com/llmbrokerapilib/-/llmbrokerapilib-1.0.23.tgz#cd2f7ff5d3dd431267dbd70de1e2ebe3144115fe"
-  integrity sha512-yZ/kApnmt3bNPgwVD6kdJo27QmsobQ7SZTXwtsuLPHh1tJ3SB/6e1A5YyaDAY4Mwo2dmZu4aARLkY74gjWY/ow==
+  version "1.0.26"
+  resolved "https://registry.yarnpkg.com/llmbrokerapilib/-/llmbrokerapilib-1.0.26.tgz#288dbc082fe37c525351b4e04b825d9d0edf9761"
+  integrity sha512-E1KnwWKfqkwO8YFH5kGlZxVtQ/aoUs1gptR+5CSx0fNH0dRmM5+rF69npLu1xf8iA/K/sZqr4Q3HT7t5JfZpUw==
   dependencies:
     "@thirdweb-dev/sdk" "^4.0.99"
     thirdweb "^5.88.1"
